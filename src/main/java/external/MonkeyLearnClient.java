@@ -32,17 +32,17 @@ public class MonkeyLearnClient {
 			return new ArrayList<>();
 		}
 
-		// Use the API key from your account
+		
 		MonkeyLearn ml = new MonkeyLearn(API_KEY);
 
-		// Use the keyword extractor
+		
 		ExtraParam[] extraParams = { new ExtraParam("max_keywords", "3") };
 		MonkeyLearnResponse response;
 		try {
 			response = ml.extractors.extract("ex_YCya9nrn", text, extraParams); 
 			JSONArray resultArray = response.arrayResult;
 			return getKeywords(resultArray);
-		} catch (MonkeyLearnException e) {// it’s likely to have an exception
+		} catch (MonkeyLearnException e) {
 			e.printStackTrace();
 		}
 		return new ArrayList<>();
